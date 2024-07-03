@@ -10,5 +10,6 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
+  login : boolean = false;
   onSubmit(myForm : any): void {}
 }

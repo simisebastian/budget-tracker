@@ -4,13 +4,28 @@
     <span>Track your expenses and income with ease.</span>
   </div>
     <div class="login-page">
-      <div class="form">
-        <form class="login-form" #myform="ngForm" (ngSubmit)="onSubmit(myform)">
-          <input type="text" name="userName" placeholder="Username" ngModel />
-          <input type="password" name="password" placeholder="password" ngModel />
-          <button>login</button>
-          <p class="message">Not registered? <a href="sign-up">Create an account</a></p>
-        </form>
-      </div>
+      @if(login) {
+        <div class="form">
+          <h2>Login</h2>
+          <form class="login-form" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+            <input type="text" name="userName" placeholder="Username" ngModel />
+            <input type="password" name="password" placeholder="password" ngModel />
+            <button>login</button>
+            <p class="message">Not registered? <a (click)="login = false" href="#">Create an account</a></p>
+          </form>
+        </div>
+      } @else {
+        <div class="form">
+          <h2>Sign Up</h2>
+          <form class="login-form" #signUpForm="ngForm" (ngSubmit)="onSubmit(signUpForm)">
+            <input type="text" name="userName" placeholder="Username" ngModel />
+            <input type="password" name="password" placeholder="password" ngModel />
+            <input type="confirmPassword" name="confirmPassword" placeholder="Confirm Password" ngModel />
+
+            <button>Sign Up</button>
+            <p class="message">I'm already amember? <a (click)="login = true" href="#">Login to the account</a></p>
+          </form>
+        </div>
+      }
     </div>
 </div>
