@@ -1,22 +1,16 @@
-<div class="container py-4">
-    <div class="row">
-        <div class="col-6">
-            <h2 class="text-center">Login</h2>
-            <form class="align-bottom" action="">
-                <div class="form-group">
-                    <label for="exampleFormControlInput1">Email address</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter email">
-                </div>
-                <div class="form-group">
-                    <label for="exampleFormControlInput2">Password</label>
-                    <input type="password" class="form-control" id="exampleFormControlInput2" placeholder="Password">
-                </div>
-                <button type="submit" class="btn btn-primary">Login</button>
-            </form>
-        </div>
-        <div class="col-6">
-            i
-        </div>
+<div class="bg-image">
+  <div class="header-container">
+    <h1>Welcome to BudgetTracker</h1>
+    <span>Track your expenses and income with ease.</span>
+  </div>
+    <div class="login-page">
+      <div class="form">
+        <form class="login-form" #myform="ngForm" (ngSubmit)="onSubmit(myform)">
+          <input type="text" name="userName" placeholder="Username" ngModel />
+          <input type="password" name="password" placeholder="password" ngModel />
+          <button>login</button>
+          <p class="message">Not registered? <a href="sign-up">Create an account</a></p>
+        </form>
+      </div>
     </div>
-
 </div>
