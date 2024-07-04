@@ -8,7 +8,7 @@
         <div class="form">
           <h2>Login</h2>
           <form class="login-form" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
-            <input type="text" name="userName" placeholder="Username" ngModel />
+            <input type="email" name="email" placeholder="Email" ngModel />
             <input type="password" name="password" placeholder="password" ngModel />
             <button>login</button>
             <p class="message">Not registered? <a (click)="login = false" href="#">Create an account</a></p>
@@ -18,10 +18,10 @@
         <div class="form">
           <h2>Sign Up</h2>
           <form class="login-form" #signUpForm="ngForm" (ngSubmit)="onSubmit(signUpForm)">
-            <input type="text" name="userName" placeholder="Username" ngModel />
+            <input type="text" name="name" placeholder="name" ngModel />
+            <input type="email" name="email" placeholder="Email" ngModel />
             <input type="password" name="password" placeholder="password" ngModel />
-            <input type="confirmPassword" name="confirmPassword" placeholder="Confirm Password" ngModel />
-
+            <input type="password" name="confirmPassword" placeholder="Confirm Password" ngModel />
             <button>Sign Up</button>
             <p class="message">I'm already amember? <a (click)="login = true" href="#">Login to the account</a></p>
           </form>
