@@ -1,0 +1,80 @@
+/* Variables */
+$background-image: url('../../../assets/login.jpg'); // Replace with your image path
+$primary-color: #007bff;
+$secondary-color: #0056b3;
+$error-color: red;
+
+/* Add a background image to the form container */
+.form-container {
+  background-image: $background-image;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px; // Add padding to prevent the form from touching the edges
+}
+
+.form {
+  background: rgba(255, 255, 255, 0.8); // White background with opacity
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 500px; // Set a maximum width for the form
+  width: 100%; // Make the form responsive
+}
+
+.form h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 15px;
+
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+
+    &.is-invalid {
+      border-color: $error-color;
+    }
+  }
+
+  .invalid-feedback {
+    color: $error-color;
+    font-size: 0.875em;
+  }
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 10px;
+  background-color: $primary-color;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: $secondary-color;
+  }
+}
+
+.message {
+  text-align: center;
+  margin-top: 10px;
+
+  a {
+    color: $primary-color;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

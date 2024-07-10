@@ -3,29 +3,47 @@
     <h1>Welcome to BudgetTracker</h1>
     <span>Track your expenses and income with ease.</span>
   </div>
-    <div class="login-page">
-      @if(login) {
-        <div class="form">
-          <h2>Login</h2>
-          <form class="login-form" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
-            <input type="email" name="email" placeholder="Email" ngModel />
-            <input type="password" name="password" placeholder="password" ngModel />
-            <button>login</button>
-            <p class="message">Not registered? <a (click)="login = false" href="#">Create an account</a></p>
-          </form>
+  <div class="login-page">
+    <div class="form">
+      <h2>Sign Up</h2>
+      <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-group mb-3">
+          <input type="text" placeholder="Email" formControlName="email" class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" />
+          @if (submitted && f['email'].errors) {
+          <div class="invalid-feedback">
+            @if (f['email'].errors['required']) {
+            <div>Email is required</div>
+            }
+            @if (f['email'].errors['email']) {
+            <div>Email is invalid</div>
+            }
+          </div>
+          }
         </div>
-      } @else {
-        <div class="form">
-          <h2>Sign Up</h2>
-          <form class="login-form" #signUpForm="ngForm" (ngSubmit)="onSubmit(signUpForm)">
-            <input type="text" name="name" placeholder="name" ngModel />
-            <input type="email" name="email" placeholder="Email" ngModel />
-            <input type="password" name="password" placeholder="password" ngModel />
-            <input type="password" name="confirmPassword" placeholder="Confirm Password" ngModel />
-            <button>Sign Up</button>
-            <p class="message">I'm already amember? <a (click)="login = true" href="#">Login to the account</a></p>
-          </form>
-        </div>
-      }
+
+        <div class="form-group mb-3">
+          <input type="password" placeholder="Password" formControlName="password" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['password'].errors }" />
+          @if (submitted && f['password'].errors) {
+          <div class="invalid-feedback">
+              @if (f['password'].errors['required']) {
+              <div>Password is required</div>
+              }
+              @if (f['password'].errors['minlength']) {
+              <div>Password must be at least 6 characters</div>
+              }
+              @if (f['password'].errors['maxlength']) {
+              <div>Username must not exceed 40 characters</div>
+              }
+          </div>
+          }
+      </div>
+      @if (errorMessage) {
+        <p style="color: red;">{{errorMessage}}</p>
+        }
+        <button type="submit" class="btn btn-primary">Login</button>
+        <p class="message">Not registered? <a href="sign-up">Create an account</a></p>
+      </form>
     </div>
-</div>
+  </div>
