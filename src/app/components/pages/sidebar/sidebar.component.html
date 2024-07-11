@@ -1,0 +1,44 @@
+
+<mat-toolbar color="primary">
+    <button mat-icon-button (click)="sidenav.toggle()" matTooltip="Menu">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span><h1>Budget Tracker</h1></span>
+    <span  class="toolbar-item-spacer"></span>
+    <button mat-icon-button (click)="logOut()">Logout</button>
+</mat-toolbar>
+
+<mat-sidenav-container class="app-container">
+    <mat-sidenav #sidenav mode="side" [class.mat-elevation-z4]="true" class="app-sidenav" [opened]="true">
+        <mat-nav-list>
+            @for (item of navItems; track $index) {
+            <ng-container>
+                <!-- @if(!item.subItems || item.subItems.length === 0){ -->
+                <mat-list-item [routerLink]="item.link" routerLinkActive="active-link" >
+                    <mat-icon>{{ item.icon }}</mat-icon><span>{{ item.label }}</span>
+                </mat-list-item>
+                <!-- } -->
+                <!-- @if (item.subItems && item.subItems.length > 0) {
+                <mat-expansion-panel [class.mat-elevation-z0]="true"  [expanded]="item.expanded">
+                    <mat-expansion-panel-header>
+                        <mat-icon>{{ item.icon }}</mat-icon><span>{{ item.label }}</span>
+                    </mat-expansion-panel-header>
+                    <mat-nav-list>
+                        @for (subItem of item.subItems; track $index) {
+                        <a mat-list-item  routerLink="{{subItem.link}}"
+                        routerLinkActive="active-link">
+                            <span>{{ subItem.label }}</span>
+                        </a>
+                        }
+                    </mat-nav-list>
+                </mat-expansion-panel>
+                } -->
+            </ng-container>
+            }
+
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

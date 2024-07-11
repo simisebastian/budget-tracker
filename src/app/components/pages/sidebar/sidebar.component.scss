@@ -1,0 +1,70 @@
+// Base styles for the toolbar
+mat-toolbar {
+    background-color: #3f51b5; // Primary color
+    color: white; // Text color
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px; // Padding around toolbar content
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); // Optional: Adding a subtle shadow
+  }
+  
+  .mat-drawer-container {
+    height: 100%;
+  }
+  
+  // Styles for the toolbar items (buttons and spans)
+  button.mat-icon-button {
+    color: white; // Button icon color
+    margin-left: 8px; // Adjust spacing between buttons
+  }
+  
+  span {
+    font-size: 1.2rem; // Font size for text
+  }
+  
+  // Add space between the left side and right side buttons/icons
+  .toolbar-item-spacer {
+    flex-grow: 1; // Pushes the account menu to the right
+  }
+  
+  // Styling for the account menu
+  .mat-menu-content {
+    background-color: #ffffff; // Background color of the menu
+    color: #333333; // Text color inside the menu
+    min-width: 200px; // Adjust the width of the menu
+  }
+  
+  .mat-divider {
+    margin: 8px 0; // Optional: Adjust the spacing above and below the divider
+  }
+  
+  // Styling for menu items inside the account menu
+  button.mat-menu-item {
+    width: 100%; // Full width for menu items
+    text-align: left; // Align text to the left
+  }
+  
+  // Adjust hover color for menu items if needed
+  button.mat-menu-item:hover {
+    background-color: #e0e0e0; // Hover background color
+  }
+  
+  .active-link {
+    background-color: rgba(50, 84, 203, 0.31);
+  }
+  
+  .mat-mdc-nav-list {
+    .mat-mdc-list-item {
+      border-radius: 0% !important;
+    }
+  }
+  
+  .mat-toolbar {
+    h1 {
+      font-size: 27px;
+      padding: 12px;
+      font-weight: bold;
+    }
+  }
+  
